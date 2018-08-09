@@ -1,7 +1,9 @@
 package com.zmalinowski.contactslist.ui.list
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class ListViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+
+    val list : MutableLiveData<List<ListItem>> = MutableLiveData()
 }

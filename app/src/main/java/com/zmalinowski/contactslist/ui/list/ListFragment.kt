@@ -13,11 +13,13 @@ import com.zmalinowski.contactslist.R
 class ListFragment : Fragment() {
 
     private lateinit var viewModel: ListViewModel
+    private lateinit var contactsAdapter: ContactsAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_item_list, container, false)
         with(view as RecyclerView) {
             layoutManager = LinearLayoutManager(context)
+            adapter = contactsAdapter
         }
         return view
     }
@@ -25,7 +27,6 @@ class ListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(ListViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }
