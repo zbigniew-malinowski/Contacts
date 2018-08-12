@@ -8,7 +8,7 @@
         android:id="@+id/listFragment"
         android:name="com.zmalinowski.contactslist.ui.list.view.ListFragment"
         android:label="fragment_item_list"
-        tools:layout="@layout/fragment_item_list" >
+        tools:layout="@layout/view_list" >
         <action
             android:id="@+id/action_list_to_details"
             app:destination="@id/detailsFragment" />
@@ -17,7 +17,7 @@
         android:id="@+id/detailsFragment"
         android:name="com.zmalinowski.contactslist.ui.details.view.DetailsFragment"
         android:label="details_fragment"
-        tools:layout="@layout/details_fragment" >
+        tools:layout="@layout/view_details" >
         <!--<argument-->
             <!--android:name="contactId"-->
             <!--app:type="string" />-->

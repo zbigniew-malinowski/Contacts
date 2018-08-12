@@ -1,3 +1,8 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ExtraTranslation">
     <string name="app_name">ContactsList</string>
+    <string name="button.retry">Retry</string>
+    <string name="error.general.message">Ooooops! Something went wrong..</string>
+    <string name="error.permissions.message">In order to use the app, please grant us access to your contact list</string>
+    <string name="button.permissions.grant">Grant permission</string>
+    <string name="list.empty">Your contact list is empty :(</string>
 </resources>

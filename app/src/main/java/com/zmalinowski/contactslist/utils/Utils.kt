@@ -1,5 +1,13 @@
 package com.zmalinowski.contactslist.utils
 
+import android.net.Uri
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.*
 import androidx.lifecycle.LiveDataReactiveStreams.fromPublisher
@@ -30,3 +38,15 @@ fun <T : Any, R : Any> Observable<T>.mapNotNull(transformer: (T) -> R?): Observa
 
 fun <T> ObservableSource<T>.toObservable() = Observable.wrap(this)
 
+@BindingAdapter("uri")
+fun ImageView.setUri(uri: Uri?) = setImageURI(uri)
+
+
+fun ViewGroup.inflate(layoutId: Int): View =
+        LayoutInflater.from(context).inflate(layoutId, this, false)
+
+
+fun <T : ViewDataBinding> ViewGroup.inflateDataBinding(layoutId: Int): T =
+        DataBindingUtil.inflate(
+                LayoutInflater.from(context),
+                layoutId, this, false)

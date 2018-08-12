@@ -1,8 +1,6 @@
 package com.zmalinowski.contactslist.ui.list.view
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.zmalinowski.contactslist.databinding.ViewListItemBinding
 
-class ListItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-}
+class ListItemViewHolder(val binding: ViewListItemBinding) : RecyclerView.ViewHolder(binding.root)

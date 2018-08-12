@@ -3,16 +3,18 @@ package com.zmalinowski.contactslist.ui.list.view
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import com.zmalinowski.contactslist.R
 import com.zmalinowski.contactslist.ui.list.ListItem
+import com.zmalinowski.contactslist.utils.inflateDataBinding
 
 class ContactsAdapter : ListAdapter<ListItem, ListItemViewHolder>(DIFF_UTIL) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListItemViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return ListItemViewHolder(parent.inflateDataBinding(R.layout.view_list_item))
     }
 
     override fun onBindViewHolder(holder: ListItemViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        holder.binding.item = getItem(position)
     }
 
     companion object {
@@ -23,4 +25,7 @@ class ContactsAdapter : ListAdapter<ListItem, ListItemViewHolder>(DIFF_UTIL) {
 
         }
     }
+
+
 }
+
