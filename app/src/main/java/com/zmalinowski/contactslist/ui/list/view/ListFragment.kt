@@ -1,4 +1,4 @@
-package com.zmalinowski.contactslist.ui.list
+package com.zmalinowski.contactslist.ui.list.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.zmalinowski.contactslist.R
+import com.zmalinowski.contactslist.ui.list.ListViewModel
 
 class ListFragment : Fragment() {
 

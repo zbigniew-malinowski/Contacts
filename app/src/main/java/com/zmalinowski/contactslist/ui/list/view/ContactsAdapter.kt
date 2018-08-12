@@ -1,8 +1,9 @@
-package com.zmalinowski.contactslist.ui.list
+package com.zmalinowski.contactslist.ui.list.view
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import com.zmalinowski.contactslist.ui.list.ListItem
 
 class ContactsAdapter : ListAdapter<ListItem, ListItemViewHolder>(DIFF_UTIL) {
 

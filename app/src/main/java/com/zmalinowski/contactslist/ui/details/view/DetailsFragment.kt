@@ -1,4 +1,4 @@
-package com.zmalinowski.contactslist.ui.details
+package com.zmalinowski.contactslist.ui.details.view
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.zmalinowski.contactslist.R
+import com.zmalinowski.contactslist.ui.details.DetailsViewModel
 
 
 class DetailsFragment : Fragment() {

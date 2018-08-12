@@ -1,4 +1,4 @@
-package com.zmalinowski.contactslist.ui.list
+package com.zmalinowski.contactslist.ui.list.view
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
