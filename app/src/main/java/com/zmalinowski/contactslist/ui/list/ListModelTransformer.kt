@@ -6,9 +6,7 @@ import com.zmalinowski.contactslist.core.State
 import com.zmalinowski.contactslist.framework.Transformer
 import com.zmalinowski.contactslist.ui.list.ListModel.*
 
-class ListModelTransformer(
-        private val itemTransformer: Transformer<ContactData, ListItem>
-) : Transformer<State, ListModel> {
+object ListModelTransformer : Transformer<State, ListModel> {
 
     override fun invoke(state: State): ListModel? = when (state) {
         is State.Loading -> Loading
@@ -17,16 +15,15 @@ class ListModelTransformer(
             else -> GeneralError
         }
         is State.Loaded -> when {
-            state.data.isNotEmpty() -> Contacts(state.data.mapNotNull(itemTransformer))
+            state.data.isNotEmpty() -> Contacts(state.data.map { it.toListItem() })
             else -> Empty
         }
         is State.Initial -> null
     }
 
-//    private fun ContactData.toListItem(): ListItem = ListItem(
-//            contactId = id,
-//            displayName = displayName,
-//            thumbnail = thumbnail,
-//            color = displayName.hashCode()
-//    )
+    private fun ContactData.toListItem(): ListItem = ListItem(
+            contactId = id,
+            displayName = displayName,
+            thumbnail = thumbnail
+    )
 }

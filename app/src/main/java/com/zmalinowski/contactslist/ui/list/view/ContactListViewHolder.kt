@@ -1,19 +1,17 @@
 package com.zmalinowski.contactslist.ui.list.view
 
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.zmalinowski.contactslist.R
 import com.zmalinowski.contactslist.ui.list.ListModel
-import com.zmalinowski.contactslist.utils.SingleItemAdapter
+import com.zmalinowski.contactslist.widget.singleitemview.ViewHolder
 
-class ContactListViewHolder(parent: ViewGroup) : SingleItemAdapter.ViewHolder<ListModel>(parent, R.layout.view_list) {
+class ContactListViewHolder(parent: ViewGroup, onContactSelected : (String) -> Unit) : ViewHolder<ListModel> by ViewHolder.Static(parent, R.layout.view_list) {
 
-    private val contactsAdapter = ContactsAdapter()
+    private val contactsAdapter = ContactsAdapter(onContactSelected)
 
     init {
         with(itemView as RecyclerView) {
-            layoutManager = LinearLayoutManager(itemView.context)
             adapter = contactsAdapter
         }
     }

@@ -7,14 +7,16 @@ import com.zmalinowski.contactslist.R
 import com.zmalinowski.contactslist.ui.list.ListItem
 import com.zmalinowski.contactslist.utils.inflateDataBinding
 
-class ContactsAdapter : ListAdapter<ListItem, ListItemViewHolder>(DIFF_UTIL) {
+class ContactsAdapter(private val onContactSelected: (String) -> Unit) : ListAdapter<ListItem, ListItemViewHolder>(DIFF_UTIL) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListItemViewHolder {
         return ListItemViewHolder(parent.inflateDataBinding(R.layout.view_list_item))
     }
 
     override fun onBindViewHolder(holder: ListItemViewHolder, position: Int) {
-        holder.binding.item = getItem(position)
+        val item = getItem(position)
+        holder.binding.item = item
+        holder.itemView.setOnClickListener { onContactSelected(item.contactId) }
     }
 
     companion object {

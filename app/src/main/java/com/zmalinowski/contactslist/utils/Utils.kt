@@ -34,13 +34,18 @@ fun <T> Observable<T>.toLiveData() = fromPublisher(toFlowable(BUFFER))
 fun <T> Single<T>.toLiveData() = fromPublisher(toFlowable())
 
 fun <T : Any, R : Any> Observable<T>.mapNotNull(transformer: (T) -> R?): Observable<R> =
-        flatMap { t -> transformer(t)?.let { r -> Observable.just(r) ?: Observable.empty() } }
+        flatMap { t -> transformer(t)?.let { r -> Observable.just(r) } ?: Observable.empty() }
 
 fun <T> ObservableSource<T>.toObservable() = Observable.wrap(this)
 
 @BindingAdapter("uri")
-fun ImageView.setUri(uri: Uri?) = setImageURI(uri)
-
+fun ImageView.setUri(uri: Uri?) {
+    if (uri != null) {
+        setImageURI(uri)
+    }else{
+        setImageResource(com.zmalinowski.contactslist.R.drawable.ic_launcher_background)
+    }
+}
 
 fun ViewGroup.inflate(layoutId: Int): View =
         LayoutInflater.from(context).inflate(layoutId, this, false)

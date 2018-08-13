@@ -5,6 +5,5 @@ import android.net.Uri
 data class ListItem(
         val contactId : String,
         val displayName: String,
-        val thumbnail: Uri?,
-        val color : Int
+        val thumbnail: Uri?
 )

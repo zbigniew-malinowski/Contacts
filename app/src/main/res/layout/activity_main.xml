@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ContactsActivity">
 
     <fragment
         android:id="@+id/my_nav_host_fragment"
@@ -12,5 +12,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/main_graph" />
+        app:navGraph="@navigation/contacts_graph" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
 
 android {
     compileSdkVersion 28
@@ -49,6 +50,12 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
     implementation 'com.github.ajalt:timberkt:1.5.1'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
+
+    def koin_version = "1.0.0-beta-4"
+
+    implementation "org.koin:koin-core:$koin_version"
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 
     //noinspection GradleDependency (newer versions introduce compilation problems)
     testImplementation 'org.amshove.kluent:kluent-android:1.38'

@@ -20,6 +20,5 @@ class DetailsModelTransformer(private val contactId: String) : Transformer<State
 
 private fun ContactData.toDetails() = Details(
         name = displayName,
-        photo = photo,
-        color = displayName.hashCode()
+        photo = photo
 )
