@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.zmalinowski.contactslist.ui.details.DetailsModel.Details" />
+            type="com.zmalinowski.contactslist.contacts.ui.details.data.DetailsModel.Details" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

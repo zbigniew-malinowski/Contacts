@@ -8,7 +8,16 @@ import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.plusAssign
 import io.reactivex.subjects.BehaviorSubject
 
-
+/**
+ * Is a single source of truth for the current [State] of an app's feature and reacts to [Action]s
+ * (and their asynchronous effects) which may modify it.
+ *
+ * The state is always defined, and any observer subscribing to it will receive the current one and
+ * all the updates.
+ *
+ * A [Store] is part of Model-View-Intent (MVI) pattern.
+ *
+ */
 interface Store<Action, State> : Consumer<Action>, ObservableSource<State>, Disposable {
 
     private class DefaultStore<Action, State>(

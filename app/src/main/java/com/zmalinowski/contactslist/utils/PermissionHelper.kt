@@ -4,19 +4,19 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.provider.Settings
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 
 private const val REQUEST_CODE_DIALOG = 1234
 private const val REQUEST_CODE_SETTINGS = 1235
 
+/**
+ * Encapsulation of Android permission API.
+ */
 class PermissionHelper(
         private val fragment: Fragment,
         private vararg val permissionList: String,
-        private val onPermissionsGranted: () -> Unit,
-        private val activity: FragmentActivity = fragment.activity!!
+        private val onPermissionsGranted: () -> Unit
 ) {
 
     fun requestPermission() {
@@ -28,13 +28,13 @@ class PermissionHelper(
     }
 
     private fun canShowDialog(): Boolean =
-            !permissionList.any { ActivityCompat.shouldShowRequestPermissionRationale(activity, it) }
+            !permissionList.any { fragment.shouldShowRequestPermissionRationale(it) }
 
     private fun goToSettings() {
         fragment.startActivityForResult(
                 Intent().apply {
                     action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-                    data = Uri.fromParts("package", activity.packageName, null)
+                    data = Uri.fromParts("package", fragment.activity!!.packageName, null)
                 },
                 REQUEST_CODE_SETTINGS)
     }
@@ -56,5 +56,5 @@ class PermissionHelper(
     }
 
     private fun hasPermission(permission: String): Boolean =
-            ContextCompat.checkSelfPermission(activity, permission) == PackageManager.PERMISSION_GRANTED
+            ContextCompat.checkSelfPermission(fragment.context!!, permission) == PackageManager.PERMISSION_GRANTED
 }

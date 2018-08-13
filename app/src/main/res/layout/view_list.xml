@@ -9,5 +9,5 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    tools:context=".ui.list.view.ListFragment"
+    tools:context=".contacts.ui.list.view.ListFragment"
     tools:listitem="@layout/view_list_item" />
